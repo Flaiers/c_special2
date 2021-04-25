@@ -4,19 +4,22 @@
 
 int SumRequiredSymbols(char *str)
 {
-  int signs = 0, digits = 0, num;
+  int signs = 0, digits = 0, sum;
   char plus, minus, multiply;
   plus = 43;
   minus = 45;
   multiply = 42;
-
-  //printf("Выводим строку: %s", str);
-  for (int s = 0; str[s] != 48; s++)
+  
+  for (int s = 0; str[s] != '\0'; s++)
   {
     if (str[s] == plus || str[s] == minus || str[s] == multiply)
       signs++;
+
+    if ('0' <= str[s] && str[s] <= '9')
+      digits++;
   }
-  return signs;
+  sum = signs + digits;
+  return sum;
 }
 
 int main(void)
